@@ -6,6 +6,7 @@ from ..Neural import NeuralLayer
 class TestNeuralLayer(unittest.TestCase):
     def test_caculate_input(self):
 
+        layer = NeuralLayer()
         self.assertEqual(2, 2)
 
 
