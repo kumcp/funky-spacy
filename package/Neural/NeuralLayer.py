@@ -1,4 +1,4 @@
-import NeuralNode
+from NeuralNode import NeuralNode
 
 
 class NeuralLayer():
