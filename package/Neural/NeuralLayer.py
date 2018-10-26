@@ -4,6 +4,16 @@ import random
 
 class NeuralLayer():
     def __init__(self, type, num_node, prev_num_node, init_weight=False):
+        """Initialize Neural Layer
+
+        Arguments:
+            type {Number} -- NeuralNode type.
+            num_node {[type]} -- [description]
+            prev_num_node {[type]} -- [description]
+
+        Keyword Arguments:
+            init_weight {bool} -- [description] (default: {False})
+        """
 
         if not init_weight:
             self.nodes = [NeuralNode(type, [random.random() for node in range(0, prev_num_node)])

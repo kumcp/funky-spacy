@@ -1,5 +1,6 @@
 
 import math
+from enum import Enum
 
 
 def func_sigmoid(x, derivate=False):
@@ -15,12 +16,18 @@ def func_relu(x, derivate=False):
     return x if x > 0 else 0
 
 
+class NeuralNodeType(Enum):
+    SIGMOID = "sigmoid"
+    RELU = "ReLU"
+
+
 class NeuralNode():
+
     def __init__(self, type, init_weight):
         """Constructor a node
 
         Arguments:
-            type {str} -- Using type of caculate: "ReLU" | "sigmoid
+            type {NeuralNodeType} -- Using type of caculate in NeuralNodeType
             init_weight {list} -- weight values
         """
 
@@ -44,8 +51,8 @@ class NeuralNode():
 
     def caculate(self, inputs):
         return {
-            "sigmoid": func_sigmoid,
-            "ReLU": func_relu
+            NeuralNodeType.SIGMOID: func_sigmoid,
+            NeuralNodeType.RELU: func_relu
         }[self.type](self.convolution(inputs))
 
     def convolution(self, inputs):
@@ -56,7 +63,7 @@ class NeuralNode():
         return sum([(x * y) for x, y in zip(self.weight, inputs)])
 
 
-test = NeuralNode("ReLU", [1, 5, 6])
+test = NeuralNode(NeuralNodeType.RELU, [1, 5, 6])
 test.update_weight([2, -6, -4])
 
 print(test.caculate([2, 5, 7]))
