@@ -49,7 +49,7 @@ class NeuralNode():
 
         self.weight = [(x + y) for x, y in zip(self.weight, lambda_weight)]
 
-    def caculate(self, inputs):
+    def calculate(self, inputs):
         return {
             NeuralNodeType.SIGMOID: func_sigmoid,
             NeuralNodeType.RELU: func_relu

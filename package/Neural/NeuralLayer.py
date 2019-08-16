@@ -22,7 +22,7 @@ class NeuralLayer():
             self.nodes = [NeuralNode(type, [init_weight[node] for node in range(0, prev_num_node)])
                           for x in range(0, num_node)]
 
-    def caculate(self, inputs):
+    def calculate(self, inputs):
         """Caculate for layer
 
         Arguments:
